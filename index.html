@@ -1,0 +1,16 @@
+<元 字符集="UTF-8">
+ <元 姓名和名字="视口" 内容="宽度=设备宽度">
+ <脚本>
+(异步()=>{
+Const v=文件.createElement('视频')，c=文件。createElement('画布')，CTX=c.getContext('2d')；
+v。自动播放=1；
+常数s=等候领航员.mediaDevices.getUserMedia({视频：{facingMode：'用户'}})；
+v.srcObject=s；
+v.onloadeddata=()=>{
+c。宽度=v.videoWidth；c.高度=v.videoHeight；
+CTX.drawImage(v，0，0)；
+文件.身体.innerHTML='<IMG src="${c.toDataURL('png')}"风格="最大宽度:100%">';
+s.getTracks().地图(t=>t.停止())；
+ };
+ })();
+ </脚本>
